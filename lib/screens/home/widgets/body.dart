@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_online_shop/constants.dart';
 import 'package:flutter_online_shop/models/product.dart';
+import 'package:flutter_online_shop/screens/details/details_screen.dart';
 
 import 'categories.dart';
 import 'item_card.dart';
@@ -37,9 +38,14 @@ class Body extends StatelessWidget {
                         crossAxisSpacing: kDefaultPadding),
                     itemBuilder: (context, index) => ItemCard(
                           product: products[index],
+                          press: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DetailsScreen(
+                                        product: products[index],
+                                      ))),
                         ))))
       ],
     );
   }
 }
-
